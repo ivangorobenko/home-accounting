@@ -28,7 +28,7 @@ class Login extends Component{
     }
 
     handleSubmit(){
-        fetch('http://localhost:8080/login', {
+        fetch('https://glacial-shelf-93469.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
