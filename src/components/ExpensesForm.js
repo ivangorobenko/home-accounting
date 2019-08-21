@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import CustomizedSnackbars from "./SnackbarContentWrapper";
 
 
 class ExpensesForm extends Component{
@@ -49,7 +50,7 @@ class ExpensesForm extends Component{
     }
 
     handleLoginOkResponse(){
-        alert("Dépense transmise");
+        this.props.history.push("/confirmation");
     }
     validateForm() {
         return this.state.amount.length > 0 && this.state.description.length > 0 && this.state.payer.length > 0;
@@ -68,6 +69,7 @@ class ExpensesForm extends Component{
                     </Button>
                 </CardContent>
             </Card>
+            <CustomizedSnackbars></CustomizedSnackbars>
         </>;
     }
 }

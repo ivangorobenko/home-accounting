@@ -22,6 +22,9 @@ class Login extends Component{
         this.setState({
             [event.target.name]: event.target.value
         });
+        //TODO : this method does not set the parent props login and password. to fix. When fixed remove userHasEnteredRightLogin and userHasEnteredRightPassword calls
+
+        this.props.userHasEnteredCredential(event.target.name,event.target.value);
     }
 
     handleSubmit(){
@@ -45,7 +48,7 @@ class Login extends Component{
     handleLoginOkResponse(){
         this.props.userHasAuthenticated(true);
         this.props.userHasEnteredRightLogin(this.state.login);
-        this.props.userHasEnteredRightPassword(this.state.password);;
+        this.props.userHasEnteredRightPassword(this.state.password);
         this.props.history.push("/expensesform");
     }
     validateForm() {

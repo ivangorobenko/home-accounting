@@ -25,6 +25,10 @@ class App extends React.Component {
     userHasEnteredRightLogin = value => {
         this.setState({ login: value });
     }
+    //TODO : this method should replace userHasEnteredRightPassword
+    userHasEnteredCredential = (target,value) => {
+        this.setState({ target: value });
+    }
 
   render() {
 
@@ -33,6 +37,7 @@ class App extends React.Component {
           userHasAuthenticated: this.userHasAuthenticated,
           userHasEnteredRightPassword: this.userHasEnteredRightPassword,
           userHasEnteredRightLogin: this.userHasEnteredRightLogin,
+          userHasEnteredCredential: this.userHasEnteredCredential,
           password: this.state.password,
           login: this.state.login
     };
