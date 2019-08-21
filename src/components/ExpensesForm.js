@@ -69,7 +69,6 @@ class ExpensesForm extends Component{
                     </Button>
                 </CardContent>
             </Card>
-            <CustomizedSnackbars></CustomizedSnackbars>
         </>;
     }
 }
