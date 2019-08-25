@@ -28,7 +28,7 @@ class ExpensesForm extends Component{
 
     handleChange = event => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.id]: event.target.value
         });
         this.validateForm();
     }
@@ -59,19 +59,32 @@ class ExpensesForm extends Component{
         }));
     }
 
+    emptyForm = event => {
+        this.setState({
+            amount: '',
+            description: '',
+            payer: ''
+        });
+        document.getElementById('amount').value='';
+        document.getElementById('description').value='';
+        document.getElementById('payer').value='';
+
+        //TODO: implement this method
+    }
     handleLoginResponse(response){
-        this.toggleSubmit();
         if (response.ok) {
             this.setState({
                 snackBarClassType: "success",
                 snackBarMessage: "Dépense envoyée"
             });
+            this.emptyForm();
         }
         else if(!response.ok) {
             this.setState({
                 snackBarClassType: "error",
-                snackBarMessage: "Erreur est survenu"
-            });        }
+                snackBarMessage: "Une erreur est survenue"
+            });
+        }
         this.toggleChildSnackBar();
     }
 
@@ -95,10 +108,10 @@ class ExpensesForm extends Component{
         return <>
             <Card>
                 <CardContent>
-                    <TextField name='amount' placeholder="montant" autoFocus onChange={this.handleChange}/> <br/>
-                    <TextField name='description'
+                    <TextField id='amount'  placeholder="montant" autoFocus onChange={this.handleChange}/> <br/>
+                    <TextField id='description'
                                placeholder="description" onChange={this.handleChange}/><br/>
-                    <TextField name='payer'
+                    <TextField  id='payer'
                                placeholder="payer par ?" onChange={this.handleChange}/><br/>
                     <Button onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                         Envoyer

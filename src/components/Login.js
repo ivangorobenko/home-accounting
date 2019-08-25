@@ -50,7 +50,7 @@ class Login extends Component{
 
     handleChange = event => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.id]: event.target.value
         });
         this.validateForm();
 
@@ -83,11 +83,10 @@ class Login extends Component{
             this.props.history.push("/expensesform");
         }
         else if(!response.ok) {
-            this.toggleSubmit();
             this.toggleChildSnackBar();
             this.setState({
                 snackBarClassType: "error",
-                snackBarMessage: "Erreur est survenu"
+                snackBarMessage: "Erreur de login"
             });
         }
     }
@@ -97,16 +96,16 @@ class Login extends Component{
         return <>
             <Card>
                 <CardContent>
-                    <TextField name='login' placeholder="login" autoFocus onChange={this.handleChange}/> <br/>
-                    <TextField name='password'
+                    <TextField id ='login' placeholder="login" autoFocus onChange={this.handleChange}/> <br/>
+                    <TextField id ='password'
                                placeholder="mot de passe" onChange={this.handleChange}/><br/>
                    <Button onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                        Confirmer
                    </Button>
-                    <CustomSnackBar open={this.state.open} toggle={this.toggleChildSnackBar}
-                                    snackbarMessage = {this.state.snackBarMessage} classType={this.state.snackBarClassType}/>
-                </CardContent>
+                   </CardContent>
             </Card>
+            <CustomSnackBar open={this.state.open} toggle={this.toggleChildSnackBar}
+                            snackbarMessage = {this.state.snackBarMessage} classType={this.state.snackBarClassType}/>
         </>;
     }
 }
