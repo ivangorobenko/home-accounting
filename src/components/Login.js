@@ -59,6 +59,7 @@ class Login extends Component{
     }
 
     handleSubmit(){
+        this.toggleSubmit();
         fetch('https://glacial-shelf-93469.herokuapp.com/login', {
             method: 'POST',
             headers: {
