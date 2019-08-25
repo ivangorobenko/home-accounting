@@ -17,7 +17,8 @@ class ExpensesForm extends Component{
             payer:'',
             open: false,
             submitButtonDisabled: true,
-            snackbarMessage:''
+            snackBarMessage:'',
+            snackBarClassType:''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLoginResponse = this.handleLoginResponse.bind(this);
@@ -34,7 +35,7 @@ class ExpensesForm extends Component{
 
     handleSubmit(){
         this.toggleSubmit();
-        fetch('http://localhost:8080/expenses', {
+        fetch('https://glacial-shelf-93469.herokuapp.com/expenses', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -59,20 +60,19 @@ class ExpensesForm extends Component{
     }
 
     handleLoginResponse(response){
-        let message = '';
         this.toggleSubmit();
-        if (response.ok)
-        {
-             message = "Dépense envoyée"
+        if (response.ok) {
+            this.setState({
+                snackBarClassType: "success",
+                snackBarMessage: "Dépense envoyée"
+            });
         }
         else if(!response.ok) {
-             message = "Erreur est servenue "
-        }
-        this.setState({
-            snackbarMessage: message
-        });
+            this.setState({
+                snackBarClassType: "error",
+                snackBarMessage: "Erreur est survenu"
+            });        }
         this.toggleChildSnackBar();
-
     }
 
     validateForm() {
@@ -103,8 +103,8 @@ class ExpensesForm extends Component{
                     <Button onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                         Envoyer
                     </Button>
-                    <CustomSnackBar open={this.state.open} onClose={this.toggleChildSnackBar} toggle={this.toggleChildSnackBar}
-                                    snackbarMessage = {this.state.snackbarMessage}/>
+                    <CustomSnackBar open={this.state.open} toggle={this.toggleChildSnackBar}
+                                    snackbarMessage = {this.state.snackBarMessage} classType={this.state.snackBarClassType}/>
                 </CardContent>
             </Card>
         </>;

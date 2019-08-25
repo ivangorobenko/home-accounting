@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db65a7-724b-4a3b-9e6f-d1a34d82a3ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CustomSnackBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SnackBarContentWrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Confirmation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppliedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppliedRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CustomSnackBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CustomSnackBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ExpensesForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ExpensesForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SnackbarContentWrapper.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -34,6 +34,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -82,7 +83,7 @@
       <updated>1565557804524</updated>
       <workItem from="1565557808088" duration="175000" />
       <workItem from="1565610616546" duration="23732000" />
-      <workItem from="1566641557963" duration="14058000" />
+      <workItem from="1566641557963" duration="23307000" />
     </task>
     <servers />
   </component>
@@ -107,7 +108,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Login.js</url>
-          <line>57</line>
+          <line>94</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

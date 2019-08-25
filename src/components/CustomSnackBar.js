@@ -1,20 +1,36 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+import {green} from "@material-ui/core/colors";
+import SnackBarContentWrapper from "./SnackBarContentWrapper";
 
 const useStyles = makeStyles(theme => ({
     close: {
-        padding: theme.spacing(0.5),
+        padding: theme.spacing(1),
     },
+    success: {
+        backgroundColor: green[600],
+    },
+    error: {
+        backgroundColor: theme.palette.error.dark,
+    }
 }));
+
 
 
 export default function CustomSnackBar(props) {
     const classes = useStyles();
+    let className;
+    determineClassName(props);
 
-
+    function determineClassName(props){
+        if(props.classType === "error"){
+            className = classes.error;
+        }
+        else if(props.classType === "success"){
+            className = classes.success;
+        }
+    }
     function handleClose(event, reason) {
         if (reason === 'clickaway') {
             return;
@@ -30,24 +46,13 @@ export default function CustomSnackBar(props) {
                     horizontal: 'left',
                 }}
                 open={props.open}
-                onClose={props.handleClose}
-                ContentProps={{
-                    'aria-describedby': 'message-id',
-                }}
-                color="green"
-                message={<span id="message-id">{props.snackbarMessage}</span>}
-                action={[
-                    <IconButton
-                        key="close"
-                        aria-label="close"
-                        color="inherit"
-                        className={classes.close}
-                        onClick={handleClose}
-                    >
-                        <CloseIcon />
-                    </IconButton>,
-                ]}
-            />
+                autoHideDuration={6000}
+                onClose={handleClose}
+            >
+                <SnackBarContentWrapper  onClose={handleClose} message={props.snackbarMessage} className={className}
+                />
+            </Snackbar>
         </div>
     );
 }
+
