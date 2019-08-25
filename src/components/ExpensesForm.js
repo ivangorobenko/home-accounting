@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import CustomizedSnackbars from "./SnackbarContentWrapper";
+import CustomSnackBar from "./CustomSnackBar";
 
 
 class ExpensesForm extends Component{
@@ -14,20 +14,27 @@ class ExpensesForm extends Component{
         this.state={
             amount:'',
             description:'',
-            payer:''
+            payer:'',
+            open: false,
+            submitButtonDisabled: true,
+            snackbarMessage:''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleLoginOkResponse = this.handleLoginOkResponse.bind(this);
-
+        this.handleLoginResponse = this.handleLoginResponse.bind(this);
+        this.toggleChildSnackBar = this.toggleChildSnackBar.bind(this);
+        this.validateForm = this.validateForm.bind(this);
     }
+
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         });
+        this.validateForm();
     }
 
     handleSubmit(){
-        fetch('https://glacial-shelf-93469.herokuapp.com/expenses', {
+        this.toggleSubmit();
+        fetch('http://localhost:8080/expenses', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -39,22 +46,51 @@ class ExpensesForm extends Component{
                 "description" : this.state.description,
                 "payer" : this.state.payer
             })
-        }).then(function(response) {
-            if (!response.ok) {
-                throw Error(response.statusText);
-            }
-            return response;
-        }).then(this.handleLoginOkResponse).catch(function(error) {
-            console.log(error);
-        });
+        }).then(
+            (response) => {
+                this.handleLoginResponse(response);
+            });
     }
 
-    handleLoginOkResponse(){
-        this.props.history.push("/confirmation");
+    toggleSubmit(){
+        this.setState(state => ({
+            submitButtonDisabled: !state.submitButtonDisabled
+        }));
     }
+
+    handleLoginResponse(response){
+        let message = '';
+        this.toggleSubmit();
+        if (response.ok)
+        {
+             message = "Dépense envoyée"
+        }
+        else if(!response.ok) {
+             message = "Erreur est servenue "
+        }
+        this.setState({
+            snackbarMessage: message
+        });
+        this.toggleChildSnackBar();
+
+    }
+
     validateForm() {
-        return this.state.amount.length > 0 && this.state.description.length > 0 && this.state.payer.length > 0;
+        if (this.state.amount.length > 0 && this.state.description.length > 0 && this.state.payer.length > 0)
+        {
+            this.setState({
+                submitButtonDisabled: false
+            });
+        }
     }
+
+
+    toggleChildSnackBar() {
+        this.setState(state => ({
+            open: !state.open
+        }));
+    }
+
     render() {
         return <>
             <Card>
@@ -64,9 +100,11 @@ class ExpensesForm extends Component{
                                placeholder="description" onChange={this.handleChange}/><br/>
                     <TextField name='payer'
                                placeholder="payer par ?" onChange={this.handleChange}/><br/>
-                    <Button onClick={this.handleSubmit} disabled={!this.validateForm()}>
+                    <Button onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                         Envoyer
                     </Button>
+                    <CustomSnackBar open={this.state.open} onClose={this.toggleChildSnackBar} toggle={this.toggleChildSnackBar}
+                                    snackbarMessage = {this.state.snackbarMessage}/>
                 </CardContent>
             </Card>
         </>;

@@ -22,13 +22,13 @@ class Login extends Component{
         this.setState({
             [event.target.name]: event.target.value
         });
-        //TODO : this method does not set the parent props login and password. to fix. When fixed remove userHasEnteredRightLogin and userHasEnteredRightPassword calls
 
+        //TODO : this method does not set the parent props login and password. to fix. When fixed remove userHasEnteredRightLogin and userHasEnteredRightPassword calls
         this.props.userHasEnteredCredential(event.target.name,event.target.value);
     }
 
     handleSubmit(){
-        fetch('https://glacial-shelf-93469.herokuapp.com/login', {
+        fetch('http://localhost:8080/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
