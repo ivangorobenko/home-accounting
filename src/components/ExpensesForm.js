@@ -108,11 +108,11 @@ class ExpensesForm extends Component{
         return <>
             <Card>
                 <CardContent>
-                    <TextField id='amount'  placeholder="montant" autoFocus onChange={this.handleChange}/> <br/>
+                    <TextField id='amount' autoComplete="off" placeholder="montant" autoFocus onChange={this.handleChange}/> <br/>
                     <TextField id='description'
-                               placeholder="description" onChange={this.handleChange}/><br/>
+                               placeholder="description" autoComplete="off" onChange={this.handleChange}/><br/>
                     <TextField  id='payer'
-                               placeholder="payer par ?" onChange={this.handleChange}/><br/>
+                               placeholder="payer par ?" autoComplete="off" onChange={this.handleChange}/><br/>
                     <Button onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                         Envoyer
                     </Button>

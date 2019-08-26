@@ -96,9 +96,9 @@ class Login extends Component{
         return <>
             <Card>
                 <CardContent>
-                    <TextField id ='login' placeholder="login" autoFocus onChange={this.handleChange}/> <br/>
+                    <TextField id ='login' placeholder="login" autoComplete="off" autoFocus onChange={this.handleChange}/> <br/>
                     <TextField id ='password'
-                               placeholder="mot de passe" onChange={this.handleChange}/><br/>
+                               placeholder="mot de passe" autoComplete="off" onChange={this.handleChange}/><br/>
                    <Button onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                        Confirmer
                    </Button>
