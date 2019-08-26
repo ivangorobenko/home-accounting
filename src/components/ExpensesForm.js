@@ -35,7 +35,7 @@ class ExpensesForm extends Component{
 
     handleSubmit(){
         this.toggleSubmit();
-        fetch('https://glacial-shelf-93469.herokuapp.com/expenses', {
+        fetch('http://localhost:8080/expenses', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
