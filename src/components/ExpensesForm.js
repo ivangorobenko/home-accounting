@@ -128,7 +128,7 @@ class ExpensesForm extends Component{
                         onChange={this.handleChangeSpecificPayer}
                         className="Radio-button"
                         row>
-                            <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" checked/>
+                            <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" selected/>
 
                             <FormControlLabel value="Ivan" control={<Radio color="primary"/>} label="Ivan" />
                     </RadioGroup>
