@@ -114,7 +114,7 @@ class ExpensesForm extends Component{
     render() {
         return <>
             <Card>
-                <CardHeader title="Budget maison"
+                <CardHeader className="Card-custom" title="Budget maison"
                 subheader="Ajouter une dépense"/>
                 <CardContent  className="Card-custom">
                     <TextField type="number" id='amount' autoComplete="off" label="€" margin="normal" autoFocus onChange={this.handleChangeGeneral}/> <br/>
