@@ -96,12 +96,12 @@ class Login extends Component{
 
     render() {
         return <>
-            <Card>
-                <CardContent>
-                    <TextField id ='login' placeholder="login" autoComplete="off" autoFocus onChange={this.handleChange}/> <br/>
+            <Card >
+                <CardContent className="Card-custom">
+                    <TextField id ='login' label="Login" autoComplete="off" margin="normal"  autoFocus onChange={this.handleChange}/> <br/>
                     <TextField id ='password' type="password"
-                               placeholder="mot de passe" autoComplete="off" onChange={this.handleChange}/><br/>
-                   <Button variant="contained" className="Submit-button" onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
+                               label="Mot de passe" autoComplete="off" margin="normal" onChange={this.handleChange}/><br/>
+                   <Button variant="contained" margin="normal" className="Submit-button" onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                        Confirmer
                    </Button>
                    </CardContent>

@@ -113,16 +113,18 @@ class ExpensesForm extends Component{
     render() {
         return <>
             <Card>
-                <CardContent>
-                    <TextField type="number" id='amount' autoComplete="off" placeholder="€" autoFocus onChange={this.handleChangeGeneral}/> <br/>
+                <CardContent  className="Card-custom">
+                    <TextField type="number" id='amount' autoComplete="off" label="€" margin="normal" autoFocus onChange={this.handleChangeGeneral}/> <br/>
                     <TextField id='description'
-                               placeholder="description" autoComplete="off" onChange={this.handleChangeGeneral}/><br/>
+                               label="Description" autoComplete="off"  margin="normal" onChange={this.handleChangeGeneral}/><br/>
                     <RadioGroup
                         aria-label="gender"
                         id="payer"
                         name="payer"
                         value={this.state.payer}
-                        onChange={this.handleChangeSpecificPayer} row>
+                        onChange={this.handleChangeSpecificPayer}
+                        className="Radio-button"
+                        row>
                             <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" selected/>
 
                             <FormControlLabel value="Ivan" control={<Radio color="primary"/>} label="Ivan" />
