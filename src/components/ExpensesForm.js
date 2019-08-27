@@ -6,6 +6,9 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CustomSnackBar from "./CustomSnackBar";
 import './Components.css';
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Radio from "@material-ui/core/Radio";
 
 
 class ExpensesForm extends Component{
@@ -15,7 +18,7 @@ class ExpensesForm extends Component{
         this.state={
             amount:'',
             description:'',
-            payer:'',
+            payer:'Be',
             open: false,
             submitButtonDisabled: true,
             snackBarMessage:'',
@@ -27,9 +30,15 @@ class ExpensesForm extends Component{
         this.validateForm = this.validateForm.bind(this);
     }
 
-    handleChange = event => {
+    handleChangeGeneral = event => {
         this.setState({
             [event.target.id]: event.target.value
+        });
+        this.validateForm();
+    }
+    handleChangeSpecificPayer = event => {
+        this.setState({
+            payer: event.target.value
         });
         this.validateForm();
     }
@@ -63,14 +72,10 @@ class ExpensesForm extends Component{
     emptyForm = event => {
         this.setState({
             amount: '',
-            description: '',
-            payer: ''
+            description: ''
         });
         document.getElementById('amount').value='';
         document.getElementById('description').value='';
-        document.getElementById('payer').value='';
-
-        //TODO: implement this method
     }
     handleLoginResponse(response){
         if (response.ok) {
@@ -90,7 +95,7 @@ class ExpensesForm extends Component{
     }
 
     validateForm() {
-        if (this.state.amount.length > 0 && this.state.description.length > 0 && this.state.payer.length > 0)
+        if (this.state.amount.length > 0 && this.state.description.length > 0 && this.state.description.length>0)
         {
             this.setState({
                 submitButtonDisabled: false
@@ -109,11 +114,19 @@ class ExpensesForm extends Component{
         return <>
             <Card>
                 <CardContent>
-                    <TextField type="number" id='amount' autoComplete="off" placeholder="montant" autoFocus onChange={this.handleChange}/> <br/>
+                    <TextField type="number" id='amount' autoComplete="off" placeholder="€" autoFocus onChange={this.handleChangeGeneral}/> <br/>
                     <TextField id='description'
-                               placeholder="description" autoComplete="off" onChange={this.handleChange}/><br/>
-                    <TextField  id='payer'
-                               placeholder="payer par ?" autoComplete="off" onChange={this.handleChange}/><br/>
+                               placeholder="description" autoComplete="off" onChange={this.handleChangeGeneral}/><br/>
+                    <RadioGroup
+                        aria-label="gender"
+                        id="payer"
+                        name="payer"
+                        value={this.state.payer}
+                        onChange={this.handleChangeSpecificPayer} row>
+                            <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" selected/>
+
+                            <FormControlLabel value="Ivan" control={<Radio color="primary"/>} label="Ivan" />
+                    </RadioGroup>
                     <Button variant="contained" className="Submit-button"  onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                         Envoyer
                     </Button>

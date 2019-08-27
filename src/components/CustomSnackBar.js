@@ -31,12 +31,6 @@ export default function CustomSnackBar(props) {
             className = classes.success;
         }
     }
-    function handleClose(event, reason) {
-        if (reason === 'clickaway') {
-            return;
-        }
-        props.toggle();
-    }
 
     return (
         <div>
@@ -47,9 +41,9 @@ export default function CustomSnackBar(props) {
                 }}
                 open={props.open}
                 autoHideDuration={2000}
-                onClose={handleClose}
+                onClose={props.toggle}
             >
-                <SnackBarContentWrapper  onClose={handleClose} message={props.snackbarMessage} className={className}
+                <SnackBarContentWrapper  onClose={props.toggle} message={props.snackbarMessage} className={className}
                 />
             </Snackbar>
         </div>
