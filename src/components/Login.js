@@ -101,13 +101,15 @@ class Login extends Component{
                     <TextField id ='login' label="Login" autoComplete="off" margin="normal"  autoFocus onChange={this.handleChange}/> <br/>
                     <TextField id ='password' type="password"
                                label="Mot de passe" autoComplete="off" margin="normal" onChange={this.handleChange}/><br/>
-                   <Button variant="contained" margin="normal" className="Submit-button" onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
+
+                    <Button variant="contained" margin="normal" className="Submit-button" onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                        Confirmer
                    </Button>
-                   </CardContent>
+                </CardContent>
             </Card>
             <CustomSnackBar open={this.state.open} toggle={this.toggleChildSnackBar}
                             snackbarMessage = {this.state.snackBarMessage} classType={this.state.snackBarClassType}/>
+
         </>;
     }
 }
