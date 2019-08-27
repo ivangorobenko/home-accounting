@@ -9,6 +9,7 @@ import './Components.css';
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
+import CardHeader from "@material-ui/core/CardHeader";
 
 
 class ExpensesForm extends Component{
@@ -113,19 +114,21 @@ class ExpensesForm extends Component{
     render() {
         return <>
             <Card>
+                <CardHeader title="Budget maison"
+                subheader="Ajouter une dépense"/>
                 <CardContent  className="Card-custom">
                     <TextField type="number" id='amount' autoComplete="off" label="€" margin="normal" autoFocus onChange={this.handleChangeGeneral}/> <br/>
                     <TextField id='description'
                                label="Description" autoComplete="off"  margin="normal" onChange={this.handleChangeGeneral}/><br/>
                     <RadioGroup
-                        aria-label="gender"
+                        aria-label="payer"
                         id="payer"
                         name="payer"
                         value={this.state.payer}
                         onChange={this.handleChangeSpecificPayer}
                         className="Radio-button"
                         row>
-                            <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" selected/>
+                            <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" checked/>
 
                             <FormControlLabel value="Ivan" control={<Radio color="primary"/>} label="Ivan" />
                     </RadioGroup>
