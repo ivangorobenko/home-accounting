@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CustomSnackBar from "./CustomSnackBar";
+import './Components.css';
 
 
 class ExpensesForm extends Component{
@@ -108,12 +109,12 @@ class ExpensesForm extends Component{
         return <>
             <Card>
                 <CardContent>
-                    <TextField id='amount' autoComplete="off" placeholder="montant" autoFocus onChange={this.handleChange}/> <br/>
+                    <TextField type="number" id='amount' autoComplete="off" placeholder="montant" autoFocus onChange={this.handleChange}/> <br/>
                     <TextField id='description'
                                placeholder="description" autoComplete="off" onChange={this.handleChange}/><br/>
                     <TextField  id='payer'
                                placeholder="payer par ?" autoComplete="off" onChange={this.handleChange}/><br/>
-                    <Button onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
+                    <Button variant="contained" className="Submit-button"  onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                         Envoyer
                     </Button>
                     <CustomSnackBar open={this.state.open} toggle={this.toggleChildSnackBar}

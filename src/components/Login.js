@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CustomSnackBar from "./CustomSnackBar";
+import './Components.css';
 
 class Login extends Component{
 
@@ -92,14 +93,15 @@ class Login extends Component{
     }
 
 
+
     render() {
         return <>
             <Card>
                 <CardContent>
-                    <TextField id ='login' placeholder="login" autoComplete="off" autoCapitalize="off" autoFocus onChange={this.handleChange}/> <br/>
-                    <TextField id ='password'
-                               placeholder="mot de passe" autoComplete="off"  autoCapitalize="off" onChange={this.handleChange}/><br/>
-                   <Button onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
+                    <TextField id ='login' placeholder="login" autoComplete="off" autoFocus onChange={this.handleChange}/> <br/>
+                    <TextField id ='password' type="password"
+                               placeholder="mot de passe" autoComplete="off" onChange={this.handleChange}/><br/>
+                   <Button variant="contained" className="Submit-button" onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                        Confirmer
                    </Button>
                    </CardContent>
