@@ -48,7 +48,7 @@ class ExpensesForm extends Component{
         });
         this.validateForm();
     }
-    handleChangeSpecificPayer = event => {
+    handleChangeSpecificCategory = event => {
         this.setState({
             category: event.target.value
         });
@@ -150,7 +150,7 @@ class ExpensesForm extends Component{
                         <InputLabel htmlFor="category">Type de dépense</InputLabel>
                         <Select
                             value={this.state.category}
-                            onChange={this.handleChangeSpecificPayer}
+                            onChange={this.handleChangeSpecificCategory}
                             inputProps={{
                                 name: 'category',
                                 id: 'category',
