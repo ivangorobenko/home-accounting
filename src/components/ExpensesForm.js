@@ -52,7 +52,6 @@ class ExpensesForm extends Component{
         this.setState({
             category: event.target.value
         });
-        this.validateForm();
     }
 
 
@@ -111,7 +110,7 @@ class ExpensesForm extends Component{
     }
 
     validateForm() {
-        if (this.state.amount.length > 0 && this.state.description.length > 0 && this.state.category.length>0)
+        if (this.state.amount.length > 0 && this.state.description.length > 0)
         {
             this.setState({
                 submitButtonDisabled: false
