@@ -10,6 +10,10 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import CardHeader from "@material-ui/core/CardHeader";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 
 class ExpensesForm extends Component{
@@ -20,6 +24,7 @@ class ExpensesForm extends Component{
             amount:'',
             description:'',
             payer:'Be',
+            category: '',
             open: false,
             submitButtonDisabled: true,
             snackBarMessage:'',
@@ -43,6 +48,13 @@ class ExpensesForm extends Component{
         });
         this.validateForm();
     }
+    handleChangeSpecificPayer = event => {
+        this.setState({
+            category: event.target.value
+        });
+        this.validateForm();
+    }
+
 
     handleSubmit(){
         this.toggleSubmit();
@@ -56,7 +68,8 @@ class ExpensesForm extends Component{
             body : JSON.stringify ({
                 "amount" : this.state.amount,
                 "description" : this.state.description,
-                "payer" : this.state.payer
+                "payer" : this.state.payer,
+                "category": this.state.category
             })
         }).then(
             (response) => {
@@ -73,10 +86,12 @@ class ExpensesForm extends Component{
     emptyForm = event => {
         this.setState({
             amount: '',
-            description: ''
+            description: '',
+            category: ''
         });
         document.getElementById('amount').value='';
         document.getElementById('description').value='';
+        document.getElementById('category').value='';
     }
     handleLoginResponse(response){
         if (response.ok) {
@@ -96,7 +111,7 @@ class ExpensesForm extends Component{
     }
 
     validateForm() {
-        if (this.state.amount.length > 0 && this.state.description.length > 0 && this.state.description.length>0)
+        if (this.state.amount.length > 0 && this.state.description.length > 0 && this.state.category.length>0)
         {
             this.setState({
                 submitButtonDisabled: false
@@ -117,12 +132,36 @@ class ExpensesForm extends Component{
                 <CardHeader className="Card-custom" title="Budget maison"
                 subheader="Ajouter une dépense"/>
                 <CardContent  className="Card-custom">
-                    <TextField type="number" id='amount' autoComplete="off" label="€" margin="normal" autoFocus onChange={this.handleChangeGeneral}/> <br/>
-                    <TextField id='description'
-                               label="Description" autoComplete="off"  margin="normal" onChange={this.handleChangeGeneral}/><br/>
-                    <RadioGroup
-                        aria-label="payer"
-                        id="payer"
+                    <TextField
+                        type="number"
+                        id='amount'
+                        autoComplete="off"
+                        label="€"
+                        margin="normal"
+                        autoFocus
+                        onChange={this.handleChangeGeneral}/> <br/>
+                    <TextField
+                        id='description'
+                        label="Description"
+                        autoComplete="off"
+                        margin="normal"
+                        onChange={this.handleChangeGeneral}/><br/>
+                    <FormControl spacing={2} className="Category-form-control">
+                        <InputLabel htmlFor="category">Type de dépense</InputLabel>
+                        <Select
+                            value={this.state.category}
+                            onChange={this.handleChangeSpecificPayer}
+                            inputProps={{
+                                name: 'category',
+                                id: 'category',
+                            }}
+                        >
+                            <MenuItem value={"Alimentation"}>Alimentation</MenuItem>
+                            <MenuItem value={"Voyages"}>Voyages</MenuItem>
+                            <MenuItem value={"Divers"}>Divers</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <RadioGroup aria-label="payer" id="payer"
                         name="payer"
                         value={this.state.payer}
                         onChange={this.handleChangeSpecificPayer}
