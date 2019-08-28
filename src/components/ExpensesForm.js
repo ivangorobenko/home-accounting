@@ -146,6 +146,16 @@ class ExpensesForm extends Component{
                         autoComplete="off"
                         margin="normal"
                         onChange={this.handleChangeGeneral}/><br/>
+                    <RadioGroup aria-label="payer" id="payer"
+                                name="payer"
+                                value={this.state.payer}
+                                onChange={this.handleChangeSpecificPayer}
+                                className="Radio-button"
+                                row>
+                        <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" selected/>
+
+                        <FormControlLabel value="Ivan" control={<Radio color="primary"/>} label="Ivan" />
+                    </RadioGroup>
                     <FormControl spacing={2} className="Category-form-control">
                         <InputLabel htmlFor="category">Type de dépense</InputLabel>
                         <Select
@@ -161,16 +171,7 @@ class ExpensesForm extends Component{
                             <MenuItem value={"Divers"}>Divers</MenuItem>
                         </Select>
                     </FormControl>
-                    <RadioGroup aria-label="payer" id="payer"
-                        name="payer"
-                        value={this.state.payer}
-                        onChange={this.handleChangeSpecificPayer}
-                        className="Radio-button"
-                        row>
-                            <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" selected/>
 
-                            <FormControlLabel value="Ivan" control={<Radio color="primary"/>} label="Ivan" />
-                    </RadioGroup>
                     <Button variant="contained" className="Submit-button"  onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
                         Envoyer
                     </Button>

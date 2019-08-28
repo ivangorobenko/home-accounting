@@ -6,7 +6,6 @@
 
 .Radio-button {
     margin-top: 16px;
-    margin-bottom: 8px;
     display: flow-root !important;
 }
 
@@ -15,7 +14,6 @@
 }
 
 .Category-form-control{
-    margin-top: 16px !important;
     margin-bottom: 8px !important;
     min-width: 169px !important;
     text-align: left;
