@@ -95,22 +95,39 @@ class Login extends Component{
 
 
     render() {
-        return <>
+        return <form>
             <Card >
                 <CardContent className="Card-custom">
-                    <TextField id ='login' label="Login" autoComplete="off" margin="normal"  autoFocus onChange={this.handleChange}/> <br/>
-                    <TextField id ='password' type="password"
-                               label="Mot de passe" autoComplete="off" margin="normal" onChange={this.handleChange}/><br/>
-
-                    <Button variant="contained" margin="normal" className="Submit-button" onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
+                    <TextField
+                        id ='login'
+                        label="Login"
+                        autoComplete="off"
+                        margin="normal"
+                        autoFocus
+                        onChange={this.handleChange}/><br/>
+                    <TextField
+                        id ='password'
+                        type="password"
+                        label="Mot de passe"
+                        autoComplete="off"
+                        margin="normal"
+                        onChange={this.handleChange}/><br/>
+                    <Button
+                        variant="contained"
+                        margin="normal"
+                        className="Submit-button"
+                        onClick={this.handleSubmit}
+                        disabled={this.state.submitButtonDisabled}>
                        Confirmer
                    </Button>
                 </CardContent>
             </Card>
-            <CustomSnackBar open={this.state.open} toggle={this.toggleChildSnackBar}
-                            snackbarMessage = {this.state.snackBarMessage} classType={this.state.snackBarClassType}/>
-
-        </>;
+            <CustomSnackBar
+                open={this.state.open}
+                toggle={this.toggleChildSnackBar}
+                snackbarMessage = {this.state.snackBarMessage}
+                classType={this.state.snackBarClassType}/>
+        </form>;
     }
 }
 export default Login;

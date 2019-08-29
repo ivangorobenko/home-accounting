@@ -154,7 +154,7 @@ class ExpensesForm extends Component{
                         <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" selected/>
 
                         <FormControlLabel value="Ivan" control={<Radio color="primary"/>} label="Ivan" />
-                    </RadioGroup>
+                    </RadioGroup><br/>
                     <FormControl spacing={2} className="Category-form-control">
                         <InputLabel htmlFor="category">Type de dépense</InputLabel>
                         <Select
@@ -163,21 +163,27 @@ class ExpensesForm extends Component{
                             inputProps={{
                                 name: 'category',
                                 id: 'category',
-                            }}
-                        >
+                            }}>
                             <MenuItem value={"Alimentation"}>Alimentation</MenuItem>
                             <MenuItem value={"Sorties/Voyages"}>Sorties/Voyages</MenuItem>
                             <MenuItem value={"Émile"}>Émile</MenuItem>
                             <MenuItem value={"Logement"}>Logement</MenuItem>
                             <MenuItem value={"Divers"}>Divers</MenuItem>
                         </Select>
-                    </FormControl>
-
-                    <Button variant="contained" className="Submit-button"  onClick={this.handleSubmit} disabled={this.state.submitButtonDisabled}>
+                    </FormControl><br/>
+                    <Button
+                        variant="contained"
+                        className="Submit-button"
+                        onClick={this.handleSubmit}
+                        disabled={this.state.submitButtonDisabled}>
                         Envoyer
                     </Button>
-                    <CustomSnackBar open={this.state.open} toggle={this.toggleChildSnackBar}
-                                    snackbarMessage = {this.state.snackBarMessage} classType={this.state.snackBarClassType}/>
+                    <CustomSnackBar
+                        open={this.state.open}
+                        toggle={this.toggleChildSnackBar}
+                        snackbarMessage = {this.state.snackBarMessage}
+                        classType={this.state.snackBarClassType}
+                    />
                 </CardContent>
             </Card>
         </form>;
