@@ -1,12 +1,13 @@
 
 .Submit-button {
-    margin-top: 16px !important;
-    margin-bottom: 8px !important;
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
 }
 
 .Radio-button {
-    margin-top: 16px;
+    margin-top: 1em;
     display: flow-root !important;
+
 }
 
 .Card-custom{
@@ -14,9 +15,10 @@
 }
 
 .Category-form-control{
-    margin-top: 16px !important;
-    margin-bottom: 8px !important;
-    min-width: 169px !important;
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+    min-width: 70% !important;
     text-align: left;
 
 }
+

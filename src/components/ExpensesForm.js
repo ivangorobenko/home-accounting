@@ -126,7 +126,7 @@ class ExpensesForm extends Component{
     }
 
     render() {
-        return <>
+        return <form>
             <Card>
                 <CardHeader className="Card-custom" title="Budget maison"
                 subheader="Ajouter une dépense"/>
@@ -166,7 +166,9 @@ class ExpensesForm extends Component{
                             }}
                         >
                             <MenuItem value={"Alimentation"}>Alimentation</MenuItem>
-                            <MenuItem value={"Voyages"}>Voyages</MenuItem>
+                            <MenuItem value={"Sorties/Voyages"}>Sorties/Voyages</MenuItem>
+                            <MenuItem value={"Émile"}>Émile</MenuItem>
+                            <MenuItem value={"Logement"}>Logement</MenuItem>
                             <MenuItem value={"Divers"}>Divers</MenuItem>
                         </Select>
                     </FormControl>
@@ -178,7 +180,7 @@ class ExpensesForm extends Component{
                                     snackbarMessage = {this.state.snackBarMessage} classType={this.state.snackBarClassType}/>
                 </CardContent>
             </Card>
-        </>;
+        </form>;
     }
 }
 
