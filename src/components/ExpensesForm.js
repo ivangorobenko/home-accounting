@@ -30,32 +30,20 @@ class ExpensesForm extends Component{
             snackBarMessage:'',
             snackBarClassType:''
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.submitExpenseForm = this.submitExpenseForm.bind(this);
         this.handleLoginResponse = this.handleLoginResponse.bind(this);
         this.toggleChildSnackBar = this.toggleChildSnackBar.bind(this);
         this.validateForm = this.validateForm.bind(this);
     }
 
-    handleChangeGeneral = event => {
+    handleChange = event => {
         this.setState({
-            [event.target.id]: event.target.value
+            [event.target.name]: event.target.value
         });
         this.validateForm();
     }
-    handleChangeSpecificPayer = event => {
-        this.setState({
-            payer: event.target.value
-        });
-        this.validateForm();
-    }
-    handleChangeSpecificCategory = event => {
-        this.setState({
-            category: event.target.value
-        });
-    }
 
-
-    handleSubmit(){
+    submitExpenseForm(){
         this.toggleSubmit();
         fetch('https://glacial-shelf-93469.herokuapp.com/expenses', {
             method: 'POST',
@@ -82,16 +70,12 @@ class ExpensesForm extends Component{
         }));
     }
 
-    emptyForm = event => {
-        this.setState({
-            amount: '',
-            description: '',
-            category: ''
-        });
-        document.getElementById('amount').value='';
-        document.getElementById('description').value='';
-        document.getElementById('category').value='';
+    toggleChildSnackBar() {
+        this.setState(state => ({
+            open: !state.open
+        }));
     }
+
     handleLoginResponse(response){
         if (response.ok) {
             this.setState({
@@ -118,11 +102,15 @@ class ExpensesForm extends Component{
         }
     }
 
-
-    toggleChildSnackBar() {
-        this.setState(state => ({
-            open: !state.open
-        }));
+    emptyForm(){
+        this.setState({
+            amount: '',
+            description: '',
+            category: ''
+        });
+        document.getElementById('amount').value='';
+        document.getElementById('description').value='';
+        document.getElementById('category').value='';
     }
 
     render() {
@@ -134,32 +122,34 @@ class ExpensesForm extends Component{
                     <TextField
                         type="number"
                         id='amount'
+                        name="amount"
                         autoComplete="off"
                         label="€"
                         margin="normal"
                         autoFocus
-                        onChange={this.handleChangeGeneral}/> <br/>
+                        onChange={this.handleChange}/> <br/>
                     <TextField
                         id='description'
+                        name="description"
                         label="Description"
                         autoComplete="off"
                         margin="normal"
-                        onChange={this.handleChangeGeneral}/><br/>
-                    <RadioGroup aria-label="payer" id="payer"
+                        onChange={this.handleChange}/><br/>
+                    <RadioGroup aria-label="payer"
+                                id='payer'
                                 name="payer"
                                 value={this.state.payer}
-                                onChange={this.handleChangeSpecificPayer}
+                                onChange={this.handleChange}
                                 className="Radio-button"
                                 row>
                         <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" selected/>
-
                         <FormControlLabel value="Ivan" control={<Radio color="primary"/>} label="Ivan" />
                     </RadioGroup><br/>
                     <FormControl spacing={2} className="Category-form-control">
                         <InputLabel htmlFor="category">Type de dépense</InputLabel>
                         <Select
                             value={this.state.category}
-                            onChange={this.handleChangeSpecificCategory}
+                            onChange={this.handleChange}
                             inputProps={{
                                 name: 'category',
                                 id: 'category',
@@ -174,7 +164,7 @@ class ExpensesForm extends Component{
                     <Button
                         variant="contained"
                         className="Submit-button"
-                        onClick={this.handleSubmit}
+                        onClick={this.submitExpenseForm}
                         disabled={this.state.submitButtonDisabled}>
                         Envoyer
                     </Button>

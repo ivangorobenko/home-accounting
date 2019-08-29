@@ -14,20 +14,13 @@ class App extends React.Component {
             password:''
         };
     }
-
+    //TODO :use isAuthenticated to redirect to login page when try to access to other pages
     userHasAuthenticated = authenticated => {
         this.setState({ isAuthenticated: authenticated });
     }
 
-    userHasEnteredRightPassword = value => {
-        this.setState({ password: value });
-    }
-    userHasEnteredRightLogin = value => {
-        this.setState({ login: value });
-    }
-    //TODO : this method should replace userHasEnteredRightPassword
-    userHasEnteredCredential = (target,value) => {
-        this.setState({ target: value });
+    updateParentAppState = (target, value) => {
+        this.setState({ [target]: value });
     }
 
   render() {
@@ -35,9 +28,7 @@ class App extends React.Component {
     const childProps = {
           isAuthenticated: this.state.isAuthenticated,
           userHasAuthenticated: this.userHasAuthenticated,
-          userHasEnteredRightPassword: this.userHasEnteredRightPassword,
-          userHasEnteredRightLogin: this.userHasEnteredRightLogin,
-          userHasEnteredCredential: this.userHasEnteredCredential,
+          updateParentAppState: this.updateParentAppState,
           password: this.state.password,
           login: this.state.login
     };

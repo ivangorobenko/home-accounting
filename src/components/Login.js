@@ -19,9 +19,9 @@ class Login extends Component{
             snackBarMessage:'',
             snackBarClassType:''
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.submitLoginForm = this.submitLoginForm.bind(this);
         this.handleLoginResponse = this.handleLoginResponse.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.submitLoginForm = this.submitLoginForm.bind(this);
         this.toggleChildSnackBar = this.toggleChildSnackBar.bind(this);
         this.validateForm = this.validateForm.bind(this);
 
@@ -48,7 +48,6 @@ class Login extends Component{
         }));
     }
 
-
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
@@ -56,10 +55,10 @@ class Login extends Component{
         this.validateForm();
 
         //TODO : this method does not set the parent props login and password. to fix. When fixed remove userHasEnteredRightLogin and userHasEnteredRightPassword calls
-        this.props.userHasEnteredCredential(event.target.name,event.target.value);
+        this.props.updateParentAppState(event.target.id,event.target.value);
     }
 
-    handleSubmit(){
+    submitLoginForm(){
         this.toggleSubmit();
         fetch('https://glacial-shelf-93469.herokuapp.com/login', {
             method: 'POST',
@@ -79,8 +78,6 @@ class Login extends Component{
         if (response.ok)
         {
             this.props.userHasAuthenticated(true);
-            this.props.userHasEnteredRightLogin(this.state.login);
-            this.props.userHasEnteredRightPassword(this.state.password);
             this.props.history.push("/expensesform");
         }
         else if(!response.ok) {
@@ -91,8 +88,6 @@ class Login extends Component{
             });
         }
     }
-
-
 
     render() {
         return <form>
@@ -116,7 +111,7 @@ class Login extends Component{
                         variant="contained"
                         margin="normal"
                         className="Submit-button"
-                        onClick={this.handleSubmit}
+                        onClick={this.submitLoginForm}
                         disabled={this.state.submitButtonDisabled}>
                        Confirmer
                    </Button>
