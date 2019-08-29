@@ -43,7 +43,7 @@ export default function CustomSnackBar(props) {
                 autoHideDuration={2000}
                 onClose={props.toggle}
             >
-                <SnackBarContentWrapper  onClose={props.toggle} message={props.snackbarMessage} className={className}
+                <SnackBarContentWrapper snackBarType={props.classType} onClose={props.toggle} message={props.snackbarMessage} className={className}
                 />
             </Snackbar>
         </div>
