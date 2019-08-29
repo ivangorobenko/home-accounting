@@ -6,6 +6,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CustomSnackBar from "./CustomSnackBar";
 import './Components.css';
+import InputAdornment from "@material-ui/core/InputAdornment";
+import {AccountCircle, Lock} from "@material-ui/icons";
 
 class Login extends Component{
 
@@ -99,14 +101,28 @@ class Login extends Component{
                         autoComplete="off"
                         margin="normal"
                         autoFocus
-                        onChange={this.handleChange}/><br/>
+                        onChange={this.handleChange}
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <AccountCircle/>
+                                </InputAdornment>
+                            ),
+                        }}/><br/>
                     <TextField
                         id ='password'
                         type="password"
                         label="Mot de passe"
                         autoComplete="off"
                         margin="normal"
-                        onChange={this.handleChange}/><br/>
+                        onChange={this.handleChange}
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <Lock/>
+                                </InputAdornment>
+                            ),
+                        }}/><br/>
                     <Button
                         variant="contained"
                         margin="normal"
