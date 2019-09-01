@@ -26,10 +26,9 @@
 }
 
 .Expenses-of-the-month-paper{
-    width: 90%;
+    width: 100%;
     marginTop: 3ex;
     overflowX: 'auto';
-    position: relative;
 }
 
 .Expenses-of-the-month-table-header{

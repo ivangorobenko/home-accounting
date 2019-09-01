@@ -127,7 +127,7 @@ class ExpensesForm extends Component{
     render() {
         return <form>
             <Card>
-                <IconButton className="Back-arrow" onClick={this.handleBackArrowClick}>
+                <IconButton className="Back-arrow" size="large" onClick={this.handleBackArrowClick}>
                     <ArrowBackIcon fontSize="inherit" />
                 </IconButton>
                 <CardHeader className="Card-custom" title="Budget maison"
