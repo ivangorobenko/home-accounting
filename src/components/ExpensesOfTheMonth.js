@@ -74,7 +74,7 @@ class ExpensesOfTheMonth extends Component{
                     </TableBody>
 
                 </Table>
-                <Fab color="primary" aria-label="add" className="Fab" onClick={this.handleClick}>
+                <Fab color="primary" aria-label="add" className="Fab" size="large" onClick={this.handleClick}>
                     <AddIcon />
                 </Fab>
             </Paper>
