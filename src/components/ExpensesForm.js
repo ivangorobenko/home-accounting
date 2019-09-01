@@ -14,7 +14,8 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-
+import IconButton from "@material-ui/core/IconButton";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 
 class ExpensesForm extends Component{
@@ -31,10 +32,14 @@ class ExpensesForm extends Component{
             snackBarMessage:'',
             snackBarClassType:''
         }
+        if(!this.props.isAuthenticated) {
+            this.props.history.push("/login");
+        }
         this.submitExpenseForm = this.submitExpenseForm.bind(this);
         this.handleLoginResponse = this.handleLoginResponse.bind(this);
         this.toggleChildSnackBar = this.toggleChildSnackBar.bind(this);
         this.validateForm = this.validateForm.bind(this);
+        this.handleBackArrowClick = this.handleBackArrowClick.bind(this);
     }
 
     handleChange = event => {
@@ -114,9 +119,17 @@ class ExpensesForm extends Component{
         document.getElementById('category').value='';
     }
 
+    handleBackArrowClick(){
+        this.props.history.push("/expensestable");
+    }
+
+
     render() {
         return <form>
             <Card>
+                <IconButton className="Back-arrow" onClick={this.handleBackArrowClick}>
+                    <ArrowBackIcon fontSize="inherit" />
+                </IconButton>
                 <CardHeader className="Card-custom" title="Budget maison"
                 subheader="Ajouter une dépense"/>
                 <CardContent  className="Card-custom">

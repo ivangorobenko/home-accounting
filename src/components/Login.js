@@ -55,8 +55,6 @@ class Login extends Component{
             [event.target.id]: event.target.value
         });
         this.validateForm();
-
-        //TODO : this method does not set the parent props login and password. to fix. When fixed remove userHasEnteredRightLogin and userHasEnteredRightPassword calls
         this.props.updateParentAppState(event.target.id,event.target.value);
     }
 

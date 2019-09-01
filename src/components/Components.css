@@ -14,6 +14,10 @@
     width: 250px;
 }
 
+.Back-arrow{
+    display: flex !important;
+}
+
 .Category-form-control{
     margin-bottom: 1em !important;
     min-width: 90% !important;
