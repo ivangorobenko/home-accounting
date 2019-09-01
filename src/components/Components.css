@@ -21,3 +21,25 @@
 
 }
 
+.Expenses-of-the-month-paper{
+    width: 100%;
+    marginTop: 3ex;
+    overflowX: 'auto';
+    position: relative;
+}
+
+.Expenses-of-the-month-table-header{
+    background-color: black !important;
+    color: white !important;
+}
+
+.Expenses-of-the-month-table{
+    minWidth: 650px;
+}
+
+.Fab{
+    margin: 1ex;
+    position: fixed !important;
+    bottom: 16px;
+    right: 16px;
+}

@@ -80,7 +80,7 @@ class Login extends Component{
         if (response.ok)
         {
             this.props.userHasAuthenticated(true);
-            this.props.history.push("/expensesform");
+            this.props.history.push("/expensestable");
         }
         else if(!response.ok) {
             this.toggleChildSnackBar();
