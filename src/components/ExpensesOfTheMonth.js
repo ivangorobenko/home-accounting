@@ -51,7 +51,7 @@ class ExpensesOfTheMonth extends Component{
 
     render() {
 
-        return <>
+        return <div className="Expenses-of-the-month-parent-div">
             <Paper className="Expenses-of-the-month-paper">
                 <Table className="Expenses-of-the-month-table">
                     <TableHead >
@@ -59,7 +59,6 @@ class ExpensesOfTheMonth extends Component{
                             <TableCell className="Expenses-of-the-month-table-header" align="right">Déscription</TableCell>
                             <TableCell className="Expenses-of-the-month-table-header" align="right">Montant</TableCell>
                             <TableCell className="Expenses-of-the-month-table-header" align="right">Payé par</TableCell>
-                            <TableCell className="Expenses-of-the-month-table-header" align="right">Category</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -68,7 +67,6 @@ class ExpensesOfTheMonth extends Component{
                                 <TableCell align="right">{row.description}</TableCell>
                                 <TableCell align="right">{row.amount}</TableCell>
                                 <TableCell align="right">{row.payer}</TableCell>
-                                <TableCell align="right">{row.category}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
@@ -78,7 +76,7 @@ class ExpensesOfTheMonth extends Component{
                     <AddIcon />
                 </Fab>
             </Paper>
-        </>;
+        </div>;
     }
 }
 

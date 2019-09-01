@@ -25,10 +25,12 @@
 
 }
 
+.Expenses-of-the-month-parent-div{
+    width: 100%;
+}
 .Expenses-of-the-month-paper{
     width: 100%;
-    marginTop: 3ex;
-    overflowX: 'auto';
+    overflow-x: auto;
 }
 
 .Expenses-of-the-month-table-header{
@@ -36,9 +38,6 @@
     color: white !important;
 }
 
-.Expenses-of-the-month-table{
-    minWidth: 650px;
-}
 
 .Fab{
     margin: 1ex;
