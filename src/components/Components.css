@@ -1,17 +1,27 @@
+.Form{
+    width: 100%;
+}
+
+.Field-expenses-form{
+    width: 100%;
+}
+
+.Card-expenses-form{
+    width: 100%;
+    background-color: white;
+    padding-top: 10%;
+}
 
 .Submit-button {
-    margin-top: 1em !important;
-    margin-bottom: 1em !important;
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
 }
 
 .Radio-button {
-    margin-top: 1em;
-    display: flow-root !important;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 100%;
 
-}
-
-.Card-custom{
-    width: 250px;
 }
 
 .Back-arrow{
@@ -19,8 +29,8 @@
 }
 
 .Category-form-control{
-    margin-bottom: 1em !important;
-    min-width: 90% !important;
+    margin-bottom: 10% !important;
+    min-width: 100% !important;
     text-align: left;
 
 }
@@ -34,7 +44,7 @@
 }
 
 .Expenses-of-the-month-table-header{
-    background-color: black !important;
+    background-color: #3f51b5 !important;
     color: white !important;
 }
 

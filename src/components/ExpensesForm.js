@@ -9,13 +9,14 @@ import './Components.css';
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
-import CardHeader from "@material-ui/core/CardHeader";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import CustomAppBar from "./CustomAppBar";
+import Paper from "@material-ui/core/Paper";
 
 
 class ExpensesForm extends Component{
@@ -51,7 +52,7 @@ class ExpensesForm extends Component{
 
     submitExpenseForm(){
         this.toggleSubmit();
-        fetch('https://glacial-shelf-93469.herokuapp.com/expenses', {
+        fetch('http://localhost:8080/expenses', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -125,29 +126,25 @@ class ExpensesForm extends Component{
 
 
     render() {
-        return <form>
-            <Card>
-                <IconButton className="Back-arrow"  onClick={this.handleBackArrowClick}>
-                    <ArrowBackIcon fontSize="inherit" />
-                </IconButton>
-                <CardHeader className="Card-custom" title="Budget maison"
-                subheader="Ajouter une dépense"/>
+        return <Paper className="Form">
+            <CustomAppBar history={this.props.history}/>
+            <Card className="Card-expenses-form">
                 <CardContent  className="Card-custom">
                     <TextField
                         type="number"
                         id='amount'
                         name="amount"
+                        className="Field-expenses-form"
                         autoComplete="off"
                         label="€"
-                        margin="normal"
                         autoFocus
                         onChange={this.handleChange}/> <br/>
                     <TextField
                         id='description'
                         name="description"
+                        className="Field-expenses-form"
                         label="Description"
                         autoComplete="off"
-                        margin="normal"
                         onChange={this.handleChange}/><br/>
                     <RadioGroup aria-label="payer"
                                 id='payer'
@@ -158,8 +155,8 @@ class ExpensesForm extends Component{
                                 row>
                         <FormControlLabel value="Be" control={<Radio color="primary"/>} label="Be" selected/>
                         <FormControlLabel value="Ivan" control={<Radio color="primary"/>} label="Ivan" />
-                    </RadioGroup><br/>
-                    <FormControl spacing={2} className="Category-form-control">
+                    </RadioGroup>
+                    <FormControl className="Category-form-control">
                         <InputLabel htmlFor="category">Type de dépense</InputLabel>
                         <Select
                             value={this.state.category}
@@ -190,7 +187,7 @@ class ExpensesForm extends Component{
                     />
                 </CardContent>
             </Card>
-        </form>;
+        </Paper>;
     }
 }
 

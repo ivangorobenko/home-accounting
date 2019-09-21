@@ -14,7 +14,7 @@ import AddIcon from '@material-ui/icons/Add';
 
 class ExpensesOfTheMonth extends Component{
     getCurrentMonthExpenses(login, password){
-        fetch('https://glacial-shelf-93469.herokuapp.com/allCurrentMonthExpenses', {
+        fetch('http://localhost:8080/allCurrentMonthExpenses', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
