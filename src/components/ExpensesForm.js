@@ -13,8 +13,6 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import IconButton from "@material-ui/core/IconButton";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CustomAppBar from "./CustomAppBar";
 import Paper from "@material-ui/core/Paper";
 
@@ -52,7 +50,7 @@ class ExpensesForm extends Component{
 
     submitExpenseForm(){
         this.toggleSubmit();
-        fetch('http://localhost:8080/expenses', {
+        fetch('https://glacial-shelf-93469.herokuapp.com/expenses', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

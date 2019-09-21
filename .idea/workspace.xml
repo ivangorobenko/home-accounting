@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db65a7-724b-4a3b-9e6f-d1a34d82a3ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CustomAppBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Components.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Components.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CustomAppBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CustomAppBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ExpensesForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ExpensesForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ExpensesOfTheMonth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ExpensesOfTheMonth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
@@ -86,7 +85,7 @@
       <updated>1565557804524</updated>
       <workItem from="1565557808088" duration="175000" />
       <workItem from="1565610616546" duration="23732000" />
-      <workItem from="1566641557963" duration="79753000" />
+      <workItem from="1566641557963" duration="79927000" />
     </task>
     <servers />
   </component>
