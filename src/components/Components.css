@@ -1,4 +1,4 @@
-.Form{
+.Paper-expense-form{
     position: absolute;
     top: 0;
     right: 0;
@@ -8,7 +8,8 @@
 }
 
 .Field-expenses-form{
-    width: 100%;
+    width: 90%;
+    margin-top: 10% !important;
 }
 
 .Card-expenses-form{
@@ -23,9 +24,10 @@
 }
 
 .Radio-button {
-    margin-top: 5%;
+    margin-top: 10%;
     margin-bottom: 5%;
-    width: 100%;
+    margin-left: 5%;
+    width: 90%;
 
 }
 
@@ -35,7 +37,7 @@
 
 .Category-form-control{
     margin-bottom: 10% !important;
-    min-width: 100% !important;
+    min-width: 90% !important;
     text-align: left;
 
 }
