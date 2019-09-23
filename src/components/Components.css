@@ -12,10 +12,12 @@
     margin-top: 10% !important;
 }
 
-.Card-expenses-form{
-    width: 100%;
-    background-color: white;
-    padding-top: 10%;
+.Card-balance{
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    -webkit-justify-content: center !important;
 }
 
 .Submit-button {
@@ -55,6 +57,19 @@
     color: white !important;
 }
 
+.AvatarIvan{
+    margin: 10px !important;
+    color: #fff !important;
+    background-color: #ffa500 !important;
+
+}
+
+.AvatarBe{
+    margin: 10px !important;
+    color: #fff !important;
+    background-color: #673ab7 !important;
+
+}
 
 .Fab{
     margin: 1ex;

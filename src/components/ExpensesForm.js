@@ -36,7 +36,6 @@ class ExpensesForm extends Component {
         this.handleLoginResponse = this.handleLoginResponse.bind(this);
         this.toggleChildSnackBar = this.toggleChildSnackBar.bind(this);
         this.validateForm = this.validateForm.bind(this);
-        this.handleBackArrowClick = this.handleBackArrowClick.bind(this);
     }
 
     handleChange = event => {
@@ -113,11 +112,6 @@ class ExpensesForm extends Component {
         document.getElementById('description').value = '';
         document.getElementById('category').value = '';
     }
-
-    handleBackArrowClick() {
-        this.props.history.push("/expensestable");
-    }
-
 
     render() {
         return <Paper className="Paper-expense-form">

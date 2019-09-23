@@ -21,7 +21,7 @@ export default function CustomAppBar(props) {
     const classes = useStyles();
 
     function handleBackArrowClick(){
-        props.history.push("/expensestable");
+        props.history.push("/dashboard");
     }
 
     return (

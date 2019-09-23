@@ -78,7 +78,7 @@ class Login extends Component{
         if (response.ok)
         {
             this.props.userHasAuthenticated(true);
-            this.props.history.push("/expensestable");
+            this.props.history.push("/dashboard");
         }
         else if(!response.ok) {
             this.toggleChildSnackBar();
@@ -92,7 +92,7 @@ class Login extends Component{
     render() {
         return <form>
             <Card >
-                <CardContent className="Card-custom">
+                <CardContent>
                     <TextField
                         id ='login'
                         label="Login"
