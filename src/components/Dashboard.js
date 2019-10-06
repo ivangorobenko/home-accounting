@@ -42,9 +42,9 @@ class Dashboard extends Component {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include'
+                'Content-Type': 'application/json',
+                'Authorization' :'Basic '+btoa("Bees" +':'+"swann")
+            }
         }).then(response => response.json())
             .then(data => this.setState({rowsToShow: data})).catch();
     }
@@ -54,9 +54,9 @@ class Dashboard extends Component {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include'
+                'Content-Type': 'application/json',
+                'Authorization' :'Basic '+btoa("Bees" +':'+"swann")
+            }
         }).then(response => response.json())
             .then(data => this.setState({personalExpensesMap: data.personalExpensesMap})).catch();
     }
