@@ -26,12 +26,12 @@ class Dashboard extends Component {
         }
         this.handleClick = this.handleClick.bind(this);
 
-        //if (this.props.isAuthenticated) {
+        if (this.props.isAuthenticated) {
             this.getCurrentBalance();
             this.getCurrentMonthExpenses();
-        //} else {
-        //    this.props.history.push("/login");
-        //}
+        } else {
+            this.props.history.push("/login");
+        }
 
     }
 
