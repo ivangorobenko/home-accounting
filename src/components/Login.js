@@ -26,7 +26,6 @@ class Login extends Component{
         this.submitLoginForm = this.submitLoginForm.bind(this);
         this.toggleChildSnackBar = this.toggleChildSnackBar.bind(this);
         this.validateForm = this.validateForm.bind(this);
-
     }
 
     toggleSubmit(){

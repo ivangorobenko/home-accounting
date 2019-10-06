@@ -33,7 +33,7 @@ class ExpensesForm extends Component {
             this.props.history.push("/login");
         }
         this.submitExpenseForm = this.submitExpenseForm.bind(this);
-        this.handleLoginResponse = this.handleLoginResponse.bind(this);
+        this.handleSubmitExpenseFormResponse = this.handleSubmitExpenseFormResponse.bind(this);
         this.toggleChildSnackBar = this.toggleChildSnackBar.bind(this);
         this.validateForm = this.validateForm.bind(this);
     }
@@ -51,9 +51,9 @@ class ExpensesForm extends Component {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + btoa(this.props.login + ':' + this.props.password)
+                'Content-Type': 'application/json'
             },
+            credentials: 'include',
             body: JSON.stringify({
                 "amount": this.state.amount,
                 "description": this.state.description,
@@ -62,7 +62,7 @@ class ExpensesForm extends Component {
             })
         }).then(
             (response) => {
-                this.handleLoginResponse(response);
+                this.handleSubmitExpenseFormResponse(response);
             });
     }
 
@@ -78,7 +78,7 @@ class ExpensesForm extends Component {
         }));
     }
 
-    handleLoginResponse(response) {
+    handleSubmitExpenseFormResponse(response) {
         if (response.ok) {
             this.setState({
                 snackBarClassType: "success",

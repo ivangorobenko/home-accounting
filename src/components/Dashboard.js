@@ -12,48 +12,51 @@ import Card from "@material-ui/core/Card";
 import {CardContent} from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
-import CustomAppBar from "./CustomAppBar";
 
 
 class Dashboard extends Component {
 
+
     constructor(props) {
         super(props);
+
         this.state = {
             rowsToShow: [],
-            personalExpensesMap:{}
+            personalExpensesMap: {},
         }
         this.handleClick = this.handleClick.bind(this);
 
         if (this.props.isAuthenticated) {
-            this.getCurrentBalance(this.props.login, this.props.password);
-            this.getCurrentMonthExpenses(this.props.login, this.props.password);
+            this.getCurrentBalance();
+            this.getCurrentMonthExpenses();
         } else {
             this.props.history.push("/login");
         }
 
     }
 
-    getCurrentMonthExpenses(login, password) {
+
+
+    getCurrentMonthExpenses() {
         fetch('https://glacial-shelf-93469.herokuapp.com/allCurrentMonthExpenses', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + btoa(login + ':' + password)
-            }
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
         }).then(response => response.json())
             .then(data => this.setState({rowsToShow: data})).catch();
     }
 
-    getCurrentBalance(login, password) {
+    getCurrentBalance() {
         fetch('https://glacial-shelf-93469.herokuapp.com/currentBalance', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + btoa(login + ':' + password)
-            }
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
         }).then(response => response.json())
             .then(data => this.setState({personalExpensesMap: data.personalExpensesMap})).catch();
     }
@@ -67,13 +70,13 @@ class Dashboard extends Component {
     render() {
 
         return <div className="Expenses-of-the-month-parent-div">
-            <Card  className="Card-balance">
-               <CardContent>
-                   <Grid container justify="center" alignItems="center">
-                       <Avatar className="AvatarIvan">I</Avatar>{this.state.personalExpensesMap['Ivan']} €
-                       <Avatar className="AvatarBe">B</Avatar>{this.state.personalExpensesMap['Be']} €
-                   </Grid>
-               </CardContent>
+            <Card className="Card-balance">
+                <CardContent>
+                    <Grid container justify="center" alignItems="center">
+                        <Avatar className="AvatarIvan">I</Avatar>{this.state.personalExpensesMap['Ivan']} €
+                        <Avatar className="AvatarBe">B</Avatar>{this.state.personalExpensesMap['Be']} €
+                    </Grid>
+                </CardContent>
             </Card>
             <Paper className="Expenses-of-the-month-paper">
                 <Table className="Expenses-of-the-month-table">

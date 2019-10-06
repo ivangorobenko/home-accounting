@@ -14,7 +14,6 @@ class App extends React.Component {
             password:''
         };
     }
-    //TODO :use isAuthenticated to redirect to login page when try to access to other pages
     userHasAuthenticated = authenticated => {
         this.setState({ isAuthenticated: authenticated });
     }
@@ -28,9 +27,7 @@ class App extends React.Component {
     const childProps = {
           isAuthenticated: this.state.isAuthenticated,
           userHasAuthenticated: this.userHasAuthenticated,
-          updateParentAppState: this.updateParentAppState,
-          password: this.state.password,
-          login: this.state.login
+          updateParentAppState: this.updateParentAppState
     };
 
     return (
