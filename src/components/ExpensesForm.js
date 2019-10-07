@@ -51,9 +51,9 @@ class ExpensesForm extends Component {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization' :'Basic '+btoa("Bees" +':'+"swann")
             },
-            credentials: 'include',
             body: JSON.stringify({
                 "amount": this.state.amount,
                 "description": this.state.description,
