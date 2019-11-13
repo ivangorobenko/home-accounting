@@ -38,7 +38,11 @@ class Dashboard extends Component {
 
 
     getCurrentMonthExpenses() {
-        fetch('https://glacial-shelf-93469.herokuapp.com/allCurrentMonthExpenses', {
+        var currentTime = new Date();
+        var currentYear = currentTime.getFullYear();
+        //getMonth returns the month from 0 to 11
+        var currentMonth = currentTime.getMonth()+1;
+        fetch('https://glacial-shelf-93469.herokuapp.com/expenses/'+currentYear+'/'+currentMonth, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
