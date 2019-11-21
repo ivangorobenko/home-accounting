@@ -58,7 +58,8 @@ class ExpensesForm extends Component {
                 "amount": this.state.amount,
                 "description": this.state.description,
                 "payer": this.state.payer,
-                "category": this.state.category
+                "category": this.state.category,
+                "date":new Date()
             })
         }).then(
             (response) => {
