@@ -27,8 +27,8 @@ class Dashboard extends Component {
         this.handleClick = this.handleClick.bind(this);
 
         if (this.props.isAuthenticated) {
-            this.getCurrentBalance();
-            this.getCurrentMonthExpenses();
+            this.getCurrentBalance(this.props.login, this.props.password);
+            this.getCurrentMonthExpenses(this.props.login, this.props.password);
         } else {
             this.props.history.push("/login");
         }
@@ -37,7 +37,7 @@ class Dashboard extends Component {
 
 
 
-    getCurrentMonthExpenses() {
+    getCurrentMonthExpenses(login, password) {
         var currentTime = new Date();
         var currentYear = currentTime.getFullYear();
         //getMonth returns the month from 0 to 11
@@ -47,19 +47,19 @@ class Dashboard extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization' :'Basic '+btoa("Bees" +':'+"swann")
+                'Authorization' :'Basic '+btoa(login +':'+password)
             }
         }).then(response => response.json())
             .then(data => this.setState({rowsToShow: data})).catch();
     }
 
-    getCurrentBalance() {
+    getCurrentBalance(login, password) {
         fetch('https://glacial-shelf-93469.herokuapp.com/currentBalance', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization' :'Basic '+btoa("Bees" +':'+"swann")
+                'Authorization' :'Basic '+btoa(login +':'+password)
             }
         }).then(response => response.json())
             .then(data => this.setState({personalExpensesMap: data.personalExpensesMap})).catch();

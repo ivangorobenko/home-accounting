@@ -52,7 +52,7 @@ class ExpensesForm extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization' :'Basic '+btoa("Bees" +':'+"swann")
+                'Authorization' :'Basic '+btoa(this.props.login +':'+this.props.password)
             },
             body: JSON.stringify({
                 "amount": this.state.amount,
