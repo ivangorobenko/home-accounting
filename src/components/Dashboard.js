@@ -90,6 +90,7 @@ class Dashboard extends Component {
                                        align="right">Déscription</TableCell>
                             <TableCell className="Expenses-of-the-month-table-header" align="right">Montant</TableCell>
                             <TableCell className="Expenses-of-the-month-table-header" align="right">Payé par</TableCell>
+                            <TableCell className="Expenses-of-the-month-table-header" align="right">Date</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -98,6 +99,7 @@ class Dashboard extends Component {
                                 <TableCell align="right">{row.description}</TableCell>
                                 <TableCell align="right">{row.amount}</TableCell>
                                 <TableCell align="right">{row.payer}</TableCell>
+                                <TableCell align="right">{row.date.substring(0,10)}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
