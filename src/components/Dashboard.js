@@ -42,7 +42,7 @@ class Dashboard extends Component {
         var currentYear = currentTime.getFullYear();
         //getMonth returns the month from 0 to 11
         var currentMonth = currentTime.getMonth()+1;
-        fetch('https://glacial-shelf-93469.herokuapp.com/expenses/'+currentYear+'/'+currentMonth, {
+        fetch('http://localhost:8080/expenses/'+currentYear+'/'+currentMonth, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
