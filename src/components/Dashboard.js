@@ -54,7 +54,7 @@ class Dashboard extends Component {
     }
 
     getCurrentBalance(login, password) {
-        fetch('https://glacial-shelf-93469.herokuapp.com/currentBalance', {
+        fetch('http://localhost:8080/currentBalance', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
