@@ -191,7 +191,7 @@ class DashboardCustomTable extends Component {
                 options={{
                     paging: false
                 }}
-                localization={{ body: { editRow: { deleteText: 'Tu veux vraiment supprimer cette dépense ?' } } }}
+                localization={{body: {editRow: {deleteText: 'Vraiment ?'},emptyDataSourceMessage: 'Aucune dépense à afficher'}}}
                 editable={{
                     onRowDelete: oldData =>
                         new Promise(resolve => {
