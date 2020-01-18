@@ -189,7 +189,11 @@ class Dashboard extends Component {
                 data={this.state.rowsToShow}
                 icons={tableIcons}
                 options={{
-                    paging: false
+                    paging: false,
+                    headerStyle: {
+                        backgroundColor: '#3f51b5',
+                        color: '#FFF'
+                    }
                 }}
                 localization={{body: {editRow: {deleteText: 'Vraiment ?'},emptyDataSourceMessage: 'Aucune dépense à afficher'}}}
                 editable={{
